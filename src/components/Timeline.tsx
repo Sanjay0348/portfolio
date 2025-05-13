@@ -102,28 +102,28 @@ function Timeline({ mode }: { mode: string }) {
   
   const isDarkMode = mode === 'dark';
 
-  useEffect(() => {
-    // Set animate entrance after a small delay
+useEffect(() => {
     setTimeout(() => {
       setAnimateEntrance(true);
     }, 300);
 
-    // Setup intersection observer for timeline elements
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          setVisibleElements(prev => [...prev, entry.target.getAttribute('data-index')]);
+          const index = entry.target.getAttribute('data-index');
+          if (index && !visibleElements.includes(index)) {
+            setVisibleElements(prev => [...prev, index]);
+          }
         }
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.2 }); // Reduced threshold for more responsive visibility
 
-    // Observe timeline elements
-    document.querySelectorAll('.vertical-timeline-element').forEach(el => {
-      observer.observe(el);
-    });
+    const elements = document.querySelectorAll('.vertical-timeline-element');
+    elements.forEach(el => observer.observe(el));
 
     return () => observer.disconnect();
-  }, []);
+}, [visibleElements]);
+
 
   const handleElementClick = (index:any) => {
     setActiveElement(activeElement === index ? null : index);
@@ -171,7 +171,6 @@ function Timeline({ mode }: { mode: string }) {
             My professional journey in software development, featuring key roles and accomplishments
           </p>
         </div>
-
         <VerticalTimeline animate={animateEntrance} className={`${animateEntrance ? 'animate' : ''}`}>
           {timelineData.map((entry, index) => (
             <VerticalTimelineElement
