@@ -1,212 +1,212 @@
 /* Timeline.scss */
 
 .timeline-section {
-    padding: 2rem 0;
-  
-    /* Dark mode specific styles */
-    &.dark-mode {
-      .timeline-header h1, 
-      .timeline-header p,
-      .vertical-timeline-element-title,
-      .vertical-timeline-element-subtitle,
-      .timeline-description,
-      .timeline-highlights h5,
-      .timeline-highlights li,
-      .timeline-skills h5,
-      .timeline-expand span {
-        color: white;
-      }
-  
-      .vertical-timeline::before {
-        background-color: rgba(255, 255, 255, 0.2);
-      }
-  
-      .vertical-timeline-element-content-arrow {
-        border-right: 7px solid rgba(25, 25, 25, 0.8) !important;
-      }
-  
-      .vertical-timeline-element-date {
-        color: rgba(255, 255, 255, 0.7) !important;
-      }
+  padding: 2rem 0;
+
+  /* Dark mode specific styles */
+  &.dark-mode {
+    .timeline-header h1,
+    .timeline-header p,
+    .vertical-timeline-element-title,
+    .vertical-timeline-element-subtitle,
+    .timeline-description,
+    .timeline-highlights h5,
+    .timeline-highlights li,
+    .timeline-skills h5,
+    .timeline-expand span {
+      color: white;
     }
-  
-    /* Light mode specific styles */
-    &.light-mode {
-      .timeline-header h1, 
-      .timeline-header p,
-      .vertical-timeline-element-title,
-      .vertical-timeline-element-subtitle,
-      .timeline-description,
-      .timeline-highlights h5,
-      .timeline-highlights li,
-      .timeline-skills h5,
-      .timeline-expand span {
-        color: #0d1116;
-      }
-  
-      .vertical-timeline::before {
-        background-color: rgba(0, 0, 0, 0.08);
-      }
-  
-      .vertical-timeline-element-content-arrow {
-        border-right: 7px solid rgba(255, 255, 255, 0.8) !important;
-      }
-  
-      .vertical-timeline-element-date {
-        color: rgba(0, 0, 0, 0.7) !important;
-      }
+
+    .vertical-timeline::before {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .vertical-timeline-element-content-arrow {
+      border-right: 7px solid rgba(25, 25, 25, 0.8) !important;
+    }
+
+    .vertical-timeline-element-date {
+      color: rgba(255, 255, 255, 0.7) !important;
     }
   }
-  
-  .timeline-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
+
+  /* Light mode specific styles */
+  &.light-mode {
+    .timeline-header h1,
+    .timeline-header p,
+    .vertical-timeline-element-title,
+    .vertical-timeline-element-subtitle,
+    .timeline-description,
+    .timeline-highlights h5,
+    .timeline-highlights li,
+    .timeline-skills h5,
+    .timeline-expand span {
+      color: #0d1116;
     }
-  
-    .timeline-intro {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto;
+
+    .vertical-timeline::before {
+      background-color: rgba(0, 0, 0, 0.08);
     }
-  }
-  
-  .timeline-element-content {
-    cursor: pointer;
-    transition: all 0.3s ease;
-    
-    .vertical-timeline-element-title {
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
+
+    .vertical-timeline-element-content-arrow {
+      border-right: 7px solid rgba(255, 255, 255, 0.8) !important;
     }
-    
-    .vertical-timeline-element-subtitle {
-      font-size: 1rem;
-      font-weight: 400;
-      margin-bottom: 1rem;
+
+    .vertical-timeline-element-date {
+      color: rgba(0, 0, 0, 0.7) !important;
     }
   }
-  
-  .timeline-description {
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-  
-  .timeline-details {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.5s ease, opacity 0.5s ease;
-    
-    &.active {
-      max-height: 1000px;
-      opacity: 1;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-    }
 }
 
-  
-  .timeline-highlights, .timeline-skills {
-    margin-bottom: 1.5rem;
-    
-    h5 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.8rem;
-    }
-    
-    ul {
-      padding-left: 1.5rem;
-      margin-top: 0.5rem;
-      
-      li {
-        margin-bottom: 0.5rem;
-        line-height: 1.4;
-      }
-    }
+.timeline-header {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
   }
-  
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+
+  .timeline-intro {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+.timeline-element-content {
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  .vertical-timeline-element-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .vertical-timeline-element-subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+}
+
+.timeline-description {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.timeline-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+
+  &.active {
+    max-height: 1000px;
+    opacity: 1;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.timeline-highlights,
+.timeline-skills {
+  margin-bottom: 1.5rem;
+
+  h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+
+  ul {
+    padding-left: 1.5rem;
     margin-top: 0.5rem;
+
+    li {
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
   }
-  
-  .skill-tag {
-    display: inline-block;
-    padding: 5px 10px;
-    border-radius: 20px;
-    border: 1px solid;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 0.5rem;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.timeline-expand {
+  text-align: center;
+  margin-top: 1rem;
+
+  span {
+    cursor: pointer;
     font-size: 0.9rem;
     font-weight: 500;
-    background: rgba(255, 255, 255, 0.1);
+    text-decoration: underline;
     transition: all 0.2s ease;
-    
+
     &:hover {
-      transform: translateY(-2px);
+      opacity: 0.8;
     }
   }
-  
-  .timeline-expand {
-    text-align: center;
-    margin-top: 1rem;
-    
-    span {
-      cursor: pointer;
-      font-size: 0.9rem;
-      font-weight: 500;
-      text-decoration: underline;
-      transition: all 0.2s ease;
-      
-      &:hover {
-        opacity: 0.8;
-      }
-    }
-  }
-  
-  /* Animation classes */
-  .vertical-timeline-element {
+}
+
+/* Animation classes */
+.vertical-timeline-element {
+  opacity: 1;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  &.visible {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    
-    &.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    transform: translateY(0);
   }
-  
-  @media (max-width: 1169px) {
-    .vertical-timeline-element-date {
-      margin-top: 1rem !important;
-      margin-bottom: 0 !important;
-      text-align: center !important;
-    }
+}
+
+@media (max-width: 1169px) {
+  .vertical-timeline-element-date {
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+    text-align: center !important;
   }
-  
-  @media (max-width: 768px) {
-    .timeline-header h1 {
-      font-size: 2rem;
-    }
-    
-    .timeline-intro {
-      font-size: 1rem;
-    }
-    
-    .skill-tags {
-      gap: 6px;
-    }
-    
-    .skill-tag {
-      font-size: 0.8rem;
-      padding: 4px 8px;
-    }
+}
+
+@media (max-width: 768px) {
+  .timeline-header h1 {
+    font-size: 2rem;
   }
+
+  .timeline-intro {
+    font-size: 1rem;
+  }
+
+  .skill-tags {
+    gap: 6px;
+  }
+
+  .skill-tag {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+}
