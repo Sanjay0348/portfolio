@@ -8,6 +8,14 @@ import {
   faNodeJs,
 } from "@fortawesome/free-brands-svg-icons";
 import {
+  motion,
+  useScroll,
+  useTransform,
+  useInView,
+  useSpring,
+  AnimatePresence,
+} from "framer-motion";
+import {
   faServer,
   faDatabase,
   faCloud,
@@ -78,6 +86,13 @@ function Expertise({ mode }: { mode: string }) {
     const baseLevels = [92, 89, 85, 78];
     return baseLevels[index % baseLevels.length];
   };
+  const progressVariants = {
+  hidden: { width: 0 },
+  visible: (value: number) => ({
+    width: `${value}%`,
+    transition: { duration: 1, ease: "easeOut" }
+  })
+};
 
   return (
     <div className="container" id="expertise">
@@ -109,10 +124,13 @@ function Expertise({ mode }: { mode: string }) {
 
               <div className="skill-progress">
                 <div className="progress-bar">
-                  <div
-                    className="progress-fill"
-                    style={{ width: `${getProgressValue(index)}%` }}
-                  ></div>
+                 <motion.div
+                      className="progress-fill"
+                      custom={getProgressValue(index)}
+                      variants={progressVariants}
+                      initial="hidden"
+                      animate={"visible"}
+                    ></motion.div>
                 </div>
                 <span className="progress-text">
                   {getProgressValue(index)}%
@@ -163,3 +181,4 @@ function Expertise({ mode }: { mode: string }) {
 }
 
 export default Expertise;
+
