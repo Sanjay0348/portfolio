@@ -334,9 +334,7 @@ function App() {
   }
 
   return (
-
-   <Routes>
-  <Route path="/" element={ <AnimatePresence mode="wait">
+    <AnimatePresence mode="wait">
       <motion.div
         className={`main-container ${
           mode === "dark" ? "dark-mode" : "light-mode"
@@ -459,12 +457,15 @@ function App() {
 
         <Footer mode={mode} />
       </motion.div>
-    </AnimatePresence>  } />
+    </AnimatePresence>
+
+  //  <Routes>
+  // <Route path="/" element={   } />
  
-  <Route path="/resume" element={ <Resume mode={mode} /> } />
+  // <Route path="/resume" element={ <Resume mode={mode} /> } />
   
   
-  //  </Routes> 
+  // </Routes> 
    
   );
 }

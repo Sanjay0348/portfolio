@@ -2,7 +2,7 @@
   "name": "Sanjay-V-Portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Sanjay0348.github.io",
+  "homepage": "https://Sanjay0348.github.io/Portfolio",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@emotion/react": "^11.11.4",
