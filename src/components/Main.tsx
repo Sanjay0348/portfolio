@@ -9,7 +9,6 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import "../assets/styles/Main.scss";
-
 interface MainProps {
   mode: string;
 }
@@ -41,6 +40,8 @@ function Main({ mode }: MainProps) {
     "Cloud Solutions Architect",
     "GenAI Engineer",
   ];
+  const skills = [{"name":"React",icon:<Code />}, {"name":"Node.js",icon:<Code />},{"name":"AWS",icon:<CloudQueue />},{"name":"GenAI/LLM",icon:<Bolt />}];
+  const social_Profile=[<GitHub />,<LinkedIn />]
   const [currentRoleIndex, setCurrentRoleIndex] = useState<number>(0);
 
   // Typing animation effect
@@ -186,7 +187,10 @@ function Main({ mode }: MainProps) {
             >
               <div className="content">
                 <motion.div className="social_icons" variants={itemVariants}>
-                  <motion.a
+
+                  {
+                    social_Profile.map(profile=>(
+                      <motion.a
                     href="https://github.com/Sanjay0348"
                     target="_blank"
                     rel="noreferrer"
@@ -194,18 +198,11 @@ function Main({ mode }: MainProps) {
                     whileHover="hover"
                     whileTap="tap"
                   >
-                    <GitHub />
+                    {profile}
                   </motion.a>
-                  <motion.a
-                    href="https://www.linkedin.com/in/sanjay-venkat0348"
-                    target="_blank"
-                    rel="noreferrer"
-                    variants={socialIconVariants}
-                    whileHover="hover"
-                    whileTap="tap"
-                  >
-                    <LinkedIn />
-                  </motion.a>
+
+                    ))
+                  }
                 </motion.div>
 
                 <motion.div className="greeting" variants={itemVariants}>
@@ -241,36 +238,27 @@ function Main({ mode }: MainProps) {
                 </motion.p>
 
                 <motion.div
-                  className="skill-highlights"
+                  className={`skill-highlights ${mode === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'}`}
                   variants={itemVariants}
                 >
-                  <motion.div
-                    className="skill-tag"
-                    whileHover={{
-                      scale: 1.05,
-                      backgroundColor: mode === "dark" ? "#2a2a3a" : "#f0f0f0",
-                    }}
-                  >
-                    <Code /> React/Node.js
-                  </motion.div>
-                  <motion.div
-                    className="skill-tag"
-                    whileHover={{
-                      scale: 1.05,
-                      backgroundColor: mode === "dark" ? "#2a2a3a" : "#f0f0f0",
-                    }}
-                  >
-                    <CloudQueue /> AWS Services
-                  </motion.div>
-                  <motion.div
-                    className="skill-tag"
-                    whileHover={{
-                      scale: 1.05,
-                      backgroundColor: mode === "dark" ? "#2a2a3a" : "#f0f0f0",
-                    }}
-                  >
-                    <Bolt /> GenAI/LLM
-                  </motion.div>
+                  {skills.map((skill, index) => (
+                    <motion.div
+                      key={index}
+                      className={`skill-tag ${mode === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'}`}
+                      whileHover={{
+                        scale: 1.05,
+                        backgroundColor:
+                          mode === "dark" ? "#2a2a3a" : "#f0f0f0",
+                      }}
+                      style={{
+                        color:mode=='dark'?"":"black",
+                        border:mode=='dark'?"":"1px black solid"
+                      }}
+                    >
+                      {skill.icon} {skill.name}
+                    </motion.div>
+                  ))}
+
                 </motion.div>
 
                 <motion.div className="cta-buttons" variants={itemVariants}>

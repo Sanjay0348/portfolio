@@ -2,15 +2,17 @@
 
 .projects-container {
   padding: 3rem 1rem;
-  max-width: 1200px;
+  margin-left: 20% ;
+  // max-width: 1200px;
   margin: 0 auto;
+  max-height: 100vh;
 
   h1 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     position: relative;
     display: inline-block;
-    left: 50%;
+    left: 45%;
     transform: translateX(-50%);
 
     &:after {
@@ -55,6 +57,7 @@
 
 .projects-grid {
   display: grid;
+  margin-left: 18%;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 2rem;
 }
@@ -222,7 +225,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.75);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -230,10 +232,17 @@
   padding: 1rem;
   backdrop-filter: blur(5px);
   animation: fadeIn 0.3s ease;
+  
+  /* Light mode */
+  background: rgba(0, 0, 0, 0.75);
+  
+  /* Dark mode */
+  &.dark {
+    background: rgba(0, 0, 0, 0.85);
+  }
 }
 
 .project-modal-content {
-  background: white;
   width: 100%;
   max-width: 800px;
   max-height: 90vh;
@@ -242,13 +251,33 @@
   padding: 2rem;
   position: relative;
   animation: scaleIn 0.3s ease;
-
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  
+  /* Light mode */
+  background: white;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  
+  /* Dark mode */
+  &.dark {
+    background: #1f2937;
+    border: 1px solid #374151;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  }
+  
   h2 {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
+    
+    /* Light mode */
     color: #1f2937;
+    
+    /* Dark mode */
+    &.dark {
+      color: #f3f4f6;
+    }
   }
-
+  
   .close-modal {
     position: absolute;
     top: 1rem;
@@ -257,11 +286,20 @@
     border: none;
     font-size: 1.8rem;
     cursor: pointer;
-    color: #4b5563;
     transition: color 0.2s ease;
-
+    
+    /* Light mode */
+    color: #4b5563;
     &:hover {
       color: #1f2937;
+    }
+    
+    /* Dark mode */
+    &.dark {
+      color: #9ca3af;
+      &:hover {
+        color: #f3f4f6;
+      }
     }
   }
 }
@@ -272,7 +310,7 @@
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 1.5rem;
-
+  
   img {
     width: 100%;
     height: 100%;
@@ -282,20 +320,37 @@
 
 .project-year {
   display: inline-block;
-  background: #e0e7ff;
-  color: #4f46e5;
   padding: 0.3rem 0.8rem;
   border-radius: 15px;
   font-size: 0.9rem;
   font-weight: 500;
   margin-bottom: 1.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  
+  /* Light mode */
+  background: #e0e7ff;
+  color: #4f46e5;
+  
+  /* Dark mode */
+  &.dark {
+    background: #3730a3;
+    color: #c7d2fe;
+  }
 }
 
 .modal-description {
   margin-bottom: 1.5rem;
-  color: #4b5563;
   line-height: 1.6;
-
+  transition: color 0.3s ease;
+  
+  /* Light mode */
+  color: #4b5563;
+  
+  /* Dark mode */
+  &.dark {
+    color: #d1d5db;
+  }
+  
   p {
     margin-bottom: 1rem;
   }
@@ -303,13 +358,21 @@
 
 .modal-tech-stack {
   margin-bottom: 1.5rem;
-
+  
   h4 {
     font-size: 1.1rem;
     margin-bottom: 0.8rem;
+    transition: color 0.3s ease;
+    
+    /* Light mode */
     color: #1f2937;
+    
+    /* Dark mode */
+    .dark & {
+      color: #f3f4f6;
+    }
   }
-
+  
   .tech-badges {
     display: flex;
     flex-wrap: wrap;
@@ -317,10 +380,28 @@
   }
 }
 
+.tech-badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  
+  /* Light mode */
+  background: #f3f4f6;
+  color: #4b5563;
+  
+  /* Dark mode */
+  &.dark {
+    background: #374151;
+    color: #d1d5db;
+  }
+}
+
 .modal-links {
   display: flex;
   gap: 1rem;
-
+  
   a {
     display: inline-flex;
     align-items: center;
@@ -329,57 +410,66 @@
     font-weight: 600;
     text-decoration: none;
     transition: all 0.2s ease;
-
+    
     i {
       margin-right: 0.5rem;
     }
   }
+}
 
-  .github-link {
-    background: #f3f4f6;
-    color: #374151;
-
-    &:hover {
-      background: #e5e7eb;
-    }
+.github-link {
+  /* Light mode */
+  background: #f3f4f6;
+  color: #374151;
+  
+  &:hover {
+    background: #e5e7eb;
   }
-
-  .demo-link {
-    background: #6366f1;
-    color: white;
-
+  
+  /* Dark mode */
+  &.dark {
+    background: #374151;
+    color: #f3f4f6;
+    
     &:hover {
-      background: #4f46e5;
+      background: #4b5563;
     }
   }
 }
 
-.no-projects {
-  text-align: center;
-  padding: 3rem 0;
-
-  p {
-    font-size: 1.1rem;
-    color: #4b5563;
-    margin-bottom: 1rem;
+.live-link {
+  /* Light mode */
+  background: #6366f1;
+  color: white;
+  
+  &:hover {
+    background: #4f46e5;
   }
-
-  .reset-filter-btn {
-    padding: 0.6rem 1.2rem;
-    background: #6366f1;
+  
+  /* Dark mode */
+  &.dark {
+    background: #4f46e5;
     color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-
+    
     &:hover {
-      background: #4f46e5;
+      background: #4338ca;
     }
   }
 }
 
+/* Animations */
+
+
+@keyframes scaleIn {
+  from { 
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to { 
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 // Animations
 @keyframes fadeInUp {
   from {

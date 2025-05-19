@@ -2,6 +2,7 @@
 
 .timeline-section {
   padding: 2rem 0;
+  min-height:100vh ;
 
   /* Dark mode specific styles */
   &.dark-mode {
@@ -210,3 +211,45 @@
     padding: 4px 8px;
   }
 }
+
+// / Add these styles to your SCSS file:
+
+// .timeline-section {
+//   cursor: none;
+//   position: relative;
+//   overflow: hidden;
+// }
+
+// .custom-cursor-outer {
+//   mix-blend-mode: difference;
+//   will-change: transform;
+//   box-shadow: 0 0 20px rgba(58, 123, 213, 0.2);
+//   transition: width 0.2s ease, height 0.2s ease;
+// }
+
+// .custom-cursor-inner {
+//   will-change: transform;
+//   box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+//   transition: opacity 0.2s ease;
+// }
+
+// .timeline-element-content {
+//   transition: box-shadow 0.3s ease, transform 0.3s ease;
+  
+//   &:hover {
+//     transform: translateY(-2px);
+//   }
+// }
+
+// .vertical-timeline-element {
+//   transition: transform 0.3s ease;
+  
+//   &:hover {
+//     z-index: 5;
+//   }
+// }
+
+// .mouse-follow-effect {
+//   will-change: transform, opacity;
+//   pointer-events: none;
+// }

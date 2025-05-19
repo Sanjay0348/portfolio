@@ -3,6 +3,7 @@
 .contact-section {
   position: relative;
   padding: $spacing-xxl 0;
+  min-height: 100vh;
   overflow: hidden;
   transition: background-color $transition-normal, color $transition-normal;
 
