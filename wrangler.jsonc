@@ -4,9 +4,9 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "my-react-app",
+	"name": "Sanjay_V",
 	"compatibility_date": "2025-05-24",
-	"pages_build_output_dir": "./dist",
+	"pages_build_output_dir": "./build",
 	"observability": {
 		"enabled": true
 	}
