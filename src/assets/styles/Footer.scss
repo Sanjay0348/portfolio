@@ -1,6 +1,4 @@
-// Simplified Footer SCSS
-@import "./variables";
-
+// Simplified Footer SCS
 .footer {
   width: 100%;
   padding: 2rem 1.5rem;
@@ -15,7 +13,7 @@
       transition: color 0.3s ease;
 
       &:hover {
-        color: $primary-color;
+        color: #0084ff;
       }
     }
   }
@@ -29,7 +27,7 @@
       transition: color 0.3s ease;
 
       &:hover {
-        color: $primary-color;
+        color: #0084ff;
       }
     }
   }
@@ -62,7 +60,7 @@
       transition: all 0.3s ease;
 
       &:hover {
-        background-color: $primary-color;
+        background-color: #0084ff;
         transform: translateY(-3px);
 
         .footer-icon {
