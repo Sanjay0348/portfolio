@@ -687,6 +687,7 @@ function Timeline({ mode }: TimelineProps) {
                   contentStyle={getElementStyles(entry, index)}
                   contentArrowStyle={getArrowStyle(index)}
                   onTimelineElementClick={() => handleElementClick(index)}
+                  key={index}
                   //  onMouseEnter={handleElementMouseEnter}
                 // onMouseLeave={handleElementMouseLeave}
                 >

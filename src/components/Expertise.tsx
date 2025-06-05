@@ -184,7 +184,7 @@ function Expertise({ mode }: { mode: string }) {
           right: 0,
           bottom: 0,
           zIndex: -1,
-          backgroundColor: mode === "dark" ? "#121212" : "#f8f8f8",
+          // backgroundColor: mode === "dark" ? "#121212" : "#f8f8f8",  
           backgroundImage: `linear-gradient(${smoothBackgroundHue}deg, 
             ${mode === "dark" ? "rgba(70, 70, 150, " : "rgba(100, 200, 255, "}${backgroundOpacity}), 
             transparent)`,

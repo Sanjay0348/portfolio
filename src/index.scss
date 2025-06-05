@@ -17,6 +17,25 @@ code {
 .main-container {
   position: relative;
   background-color: #0d1116;
+  height: 550vh;
+#home{
+  position: sticky;
+  height: 100vh;
+  top: 0;
+}
+.expertise,.timeline,.timeline,.contact,.projects {
+  position: relative;
+  // height: 100vh;
+  background: #0d1116;
+}
+
+}
+.light-mode{
+  .expertise,.timeline,.timeline,.contact,.projects {
+  position: relative;
+  // height: 100vh;
+  background: #e6e9ed;
+}
 }
 
 a {

@@ -11,9 +11,12 @@ import {
 import "../assets/styles/Main.scss";
 interface MainProps {
   mode: string;
+
 }
 
 function Main({ mode }: MainProps) {
+ 
+
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [typedText, setTypedText] = useState<string>("");
   const themeMode = mode === "dark" ? "darkth" : "lightth";
@@ -189,8 +192,9 @@ function Main({ mode }: MainProps) {
                 <motion.div className="social_icons" variants={itemVariants}>
 
                   {
-                    social_Profile.map(profile=>(
+                    social_Profile.map((profile,index)=>(
                       <motion.a
+                      key={index}
                     href="https://github.com/Sanjay0348"
                     target="_blank"
                     rel="noreferrer"
@@ -243,7 +247,7 @@ function Main({ mode }: MainProps) {
                 >
                   {skills.map((skill, index) => (
                     <motion.div
-                      key={index}
+                      key={`${index}-${Date.now()}`}
                       className={`skill-tag ${mode === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'}`}
                       whileHover={{
                         scale: 1.05,
@@ -324,6 +328,7 @@ function Main({ mode }: MainProps) {
               initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ delay: 0.6, duration: 0.8, type: "spring" }}
+              
             >
               <motion.div
                 className="profile-image-placeholder"
