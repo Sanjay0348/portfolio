@@ -15,7 +15,10 @@ interface MainProps {
 }
 
 function Main({ mode }: MainProps) {
- 
+ type SocialProfile = {
+  icon: any;
+  link: string;
+}
 
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [typedText, setTypedText] = useState<string>("");
@@ -44,7 +47,7 @@ function Main({ mode }: MainProps) {
     "GenAI Engineer",
   ];
   const skills = [{"name":"React",icon:<Code />}, {"name":"Node.js",icon:<Code />},{"name":"AWS",icon:<CloudQueue />},{"name":"GenAI/LLM",icon:<Bolt />}];
-  const social_Profile=[<GitHub />,<LinkedIn />]
+  const social_Profile: SocialProfile[]=[{icon:<GitHub />,link:'https://github.com/Sanjay0348'},{icon:<LinkedIn />,link:"https://www.linkedin.com/in/sanjay-venkat0348"}]
   const [currentRoleIndex, setCurrentRoleIndex] = useState<number>(0);
 
   // Typing animation effect
@@ -202,7 +205,7 @@ function Main({ mode }: MainProps) {
                     whileHover="hover"
                     whileTap="tap"
                   >
-                    {profile}
+                    {profile.icon}
                   </motion.a>
 
                     ))
