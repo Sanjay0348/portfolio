@@ -4,13 +4,22 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { PostHogProvider} from 'posthog-js/react'
 
+const options = {
+  api_host: import.meta.env.VITE_APP_PUBLIC_POSTHOG_HOST,
+}
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <>
+  <PostHogProvider 
+      apiKey={import.meta.env.VITE_APP_PUBLIC_POSTHOG_KEY}
+      options={options}
+    >
     <App />
+    </PostHogProvider>
   </>
 );
 
