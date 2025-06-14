@@ -19,7 +19,7 @@ interface ProjectData {
   category?: string[];
 }
 
-const projectData:any =[
+const projectData:ProjectData[] =[
   {
     id: 1,
     title: "Text-to-Video Pipeline",
@@ -94,7 +94,16 @@ const projectData:any =[
 
 function Project({ mode = "dark" }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [selectedProject, setSelectedProject] = useState(projectData);
+  const [selectedProject, setSelectedProject] = useState<ProjectData>({
+  id: 0,
+  title: '',
+  description: '',
+  longDescription: [],
+  techStack: [],
+  image: '',
+  link: '',
+  year: new Date().getFullYear(),
+});
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   
