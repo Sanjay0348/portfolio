@@ -23,6 +23,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Chip from "@mui/material/Chip";
 import "../assets/styles/Expertise.scss";
+import Skills from "./Skills";
 
 const skills = [
    {
@@ -164,7 +165,7 @@ function Expertise({ mode }: { mode: string }) {
 
   return (
     <motion.div 
-      className="container" 
+      className="expertise-container" 
       id="expertise"
       ref={containerRef}
       style={{
@@ -251,7 +252,9 @@ function Expertise({ mode }: { mode: string }) {
               Certified Developer
             </span>
           </motion.div>
+        
         </motion.div>
+          <Skills mode={mode}/>
         <div className={`skills-grid ${mode=='dark'?"darkth":"lightth"}`}>
           {skills.map((skill, index) => (
             <motion.div

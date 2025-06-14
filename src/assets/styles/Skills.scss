@@ -1,0 +1,198 @@
+// .skills-marquee {
+//   width: 100%;
+//   overflow: hidden;
+//   padding: 2rem 0;
+//   position: relative;
+
+//   &.light {
+//     // background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+//     background: transparent;
+//   }
+
+//   &.dark {
+//     // background: linear-gradient(135deg, #1e1e1e 0%, #434343 100%);
+//   }
+
+//   .marquee {
+//     width: 100%;
+//     overflow: hidden;
+//     white-space: nowrap;
+//   }
+
+//   .marquee-content {
+//     display: inline-flex;
+//     animation: marquee 25s linear infinite;
+//     will-change: transform;
+//   }
+
+
+
+// .skill-item {
+//   display: inline-flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin: 0 1.5rem;
+//   padding: 1rem 2rem;
+//   border-radius: 12px;
+//   background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+//   backdrop-filter: blur(5px);
+//   border: none; /* Explicitly remove any border */
+//   transform: perspective(1000px) rotateY(0deg);
+//   transition: transform 0.3s ease;
+
+//   span {
+//     font-size: 1.6rem;
+//     font-weight: 600;
+//     letter-spacing: 0.05em;
+//     text-transform: uppercase;
+//     color: inherit;
+//   }
+
+//   &:hover {
+//     transform: perspective(1000px) rotateY(10deg) scale(1.05);
+//     z-index: 10;
+//   }
+// }
+
+//   &.light .skill-item {
+//     color: #2d3748;
+//     background: linear-gradient(45deg, rgba(255, 255, 255, 0.8), rgba(200, 200, 255, 0.4));
+//   }
+
+//   &.dark .skill-item {
+//     color: #e2e8f0;
+//     background: linear-gradient(45deg, rgba(50, 50, 50, 0.8), rgba(100, 100, 150, 0.4));
+//   }
+
+//   @keyframes marquee {
+//     0% {
+//       transform: translateX(0);
+//     }
+//     100% {
+//       transform: translateX(-50%);
+//     }
+//   }
+
+//   &:hover .marquee-content {
+//     animation-play-state: paused;
+//   }
+
+//   @media (max-width: 768px) {
+//     .skill-item {
+//       padding: 0.8rem 1.5rem;
+//       margin: 0 1rem;
+
+//       span {
+//         font-size: 1.2rem;
+//       }
+//     }
+//   }
+// }
+
+
+.skills-marquee {
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0;
+  position: relative;
+
+  &.light {
+    background: transparent;
+  }
+
+  &.dark {
+    // background: linear-gradient(135deg, #1e1e1e 0%, #434343 100%);
+  }
+
+  .marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee-content {
+    display: inline-flex;
+    animation: marquee 20s linear infinite; /* Slightly faster for better flow */
+    will-change: transform;
+  }
+
+  .skill-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1.5rem;
+    padding: 1rem 2rem;
+    // border-radius: 12px;
+    // background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(150, 200, 255, 0.4)); /* Softer gradient */
+    // backdrop-filter: blur(8px); /* Increased blur for a glassier effect */
+    // border: none;
+    // transform: perspective(1000px) rotateY(0deg) scale(1);
+    // transition: transform 0.4s ease, background 0.4s ease, filter 0.4s ease; /* Added background and filter to transition */
+    filter: brightness(1) drop-shadow(0 0 5px rgba(100, 150, 255, 0.3)); /* Subtle glow effect */
+
+    span {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+   
+      color: inherit;
+      transition: color 0.4s ease; /* Smooth color transition on hover */
+    }
+
+    &:hover {
+      transform: perspective(1000px) rotateY(5deg) scale(1.1); /* Reduced rotateY for subtlety, added lift */
+    //   background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(100, 150, 255, 0.6)); /* Brighter gradient on hover */
+      filter: brightness(1.2) drop-shadow(0 0 10px rgba(100, 150, 255, 0.5)); /* Enhanced glow on hover */
+      z-index: 10;
+
+      span {
+        color: #ffffff; /* Bright white text on hover for better contrast */
+      }
+    }
+  }
+
+  &.light .skill-item {
+    color: #2d3748;
+   
+    // background: linear-gradient(45deg, rgba(255, 255, 255, 0.8), rgba(150, 200, 255, 0.5)); /* Adjusted gradient for light mode */
+  }
+
+  &.dark .skill-item {
+    color: #e2e8f0;
+     span{
+        // color: beige;
+        background: linear-gradient(90deg, #7b8c99, #a0aab2, #c0c5c9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+    }
+    // background: linear-gradient(45deg, rgba(50, 50, 50, 0.8), rgba(100, 150, 255, 0.5)); /* Adjusted gradient for dark mode */
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0) scale(1);
+    }
+    50% {
+      transform: translateX(-25%) scale(1.02); /* Slight scale-up in the middle for a dynamic feel */
+    }
+    100% {
+      transform: translateX(-50%) scale(1);
+    }
+  }
+
+  &:hover .marquee-content {
+    animation-play-state: paused;
+  }
+
+  @media (max-width: 768px) {
+    .skill-item {
+      padding: 0.8rem 1.5rem;
+      margin: 0 1rem;
+
+      span {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

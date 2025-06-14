@@ -564,6 +564,7 @@ import {
   Resume,
 } from "./components/index.js";
 import "./index.scss";
+import Skills from "./components/Skills.js";
 
 
 interface AppProps {}
@@ -735,6 +736,7 @@ function App() {
         >
           <motion.div variants={sectionVariants}>
             <Expertise mode={mode} />
+           
           </motion.div>
         </motion.section>
 

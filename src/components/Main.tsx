@@ -198,7 +198,7 @@ function Main({ mode }: MainProps) {
                     social_Profile.map((profile,index)=>(
                       <motion.a
                       key={index}
-                    href="https://github.com/Sanjay0348"
+                    href={profile.link}
                     target="_blank"
                     rel="noreferrer"
                     variants={socialIconVariants}
