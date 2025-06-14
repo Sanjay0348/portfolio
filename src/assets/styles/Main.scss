@@ -265,7 +265,7 @@
       font-size: 1.2rem;
       font-weight: 500;
       margin-bottom: 0.5rem;
-      color: #00d2ff;
+      color: rgb(42, 42, 114);
       letter-spacing: 1px;
     }
 
@@ -394,7 +394,7 @@
         transition: all 0.3s ease;
 
         &.primary {
-          background: linear-gradient(90deg, #3a7bd5, #00d2ff);
+          background: linear-gradient(90deg, #3a7bd5, rgb(42, 42, 114));
           color: white;
           box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
 
@@ -430,7 +430,7 @@
       background: linear-gradient(
         135deg,
         rgba(58, 123, 213, 0.8),
-        rgba(0, 210, 255, 0.8)
+        rgb(42, 42, 114)
       );
       display: flex;
       align-items: center;
@@ -789,6 +789,6 @@
 
 .lightth {
   h1 {
-    background: linear-gradient(242deg, #ffffff, #00d2ff);
+    background: linear-gradient(242deg, #ffffff, rgb(42, 42, 114));
   }
 }
