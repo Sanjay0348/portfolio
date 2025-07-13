@@ -210,7 +210,7 @@ function Project({ mode = "dark" }) {
                     alt={project.title}
                     className="card-image"
                   />
-                  <div className="card-overlay">
+                  {/* <div className="card-overlay">
                     {isCenter && (
                       <motion.button
                         className="view-details-btn"
@@ -221,7 +221,7 @@ function Project({ mode = "dark" }) {
                         View Details
                       </motion.button>
                     )}
-                  </div>
+                  </div> */}
                 </div>
                 
                 <div className="card-content">
