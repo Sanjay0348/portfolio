@@ -31,6 +31,7 @@ const navItems = [
 
 function Navigation({ parentToChild, modeChange }: any) {
   const { mode } = parentToChild;
+  console.log(mode,"'---")
   const isDarkMode = mode === "dark";
 
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -322,7 +323,7 @@ function Navigation({ parentToChild, modeChange }: any) {
               arrow
             >
               <IconButton
-                onClick={modeChange}
+                onClick={()=>{modeChange()}}
                 color="inherit"
                 sx={{
                   backgroundColor: isDarkMode
