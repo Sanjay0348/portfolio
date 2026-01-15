@@ -1,11 +1,11 @@
 // import React, { useState, useEffect, useRef } from "react";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { 
-//   faBriefcase, 
-//   faCode, 
-//   faCloud, 
-//   faChartLine, 
-//   faCheckCircle 
+// import {
+//   faBriefcase,
+//   faCode,
+//   faCloud,
+//   faChartLine,
+//   faCheckCircle
 // } from '@fortawesome/free-solid-svg-icons';
 // import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
@@ -51,7 +51,7 @@
 //     ],
 //     highlights: [
 //       "Developed RESTful APIs for data integration",
-//       "Created responsive UI components", 
+//       "Created responsive UI components",
 //       "Participated in code reviews and testing"
 //     ],
 //     color: "#00a591"
@@ -102,17 +102,17 @@
 //   const [activeElement, setActiveElement] = useState(null);
 //   const [visibleElements, setVisibleElements] = useState<(string | null)[]>([]);
 //   const [animateEntrance, setAnimateEntrance] = useState(false);
-  
+
 //   // Mouse position tracking
 //   const mouseX = useMotionValue(0);
 //   const mouseY = useMotionValue(0);
-  
+
 //   // Container reference to get relative position
 //   const containerRef = useRef<HTMLDivElement>(null);
-  
+
 //   // Controls for the background effect animation
 //   const backgroundControls = useAnimation();
-  
+
 //   const isDarkMode = mode === 'dark';
 
 // useEffect(() => {
@@ -144,10 +144,10 @@
 //       // Calculate relative position within the container
 //       const x = e.clientX - rect.left;
 //       const y = e.clientY - rect.top;
-      
+
 //       mouseX.set(x);
 //       mouseY.set(y);
-      
+
 //       // Animate the background effect
 //       backgroundControls.start({
 //         x: x - 150, // Center the effect around the cursor
@@ -174,7 +174,7 @@
 //   // Determine theme-specific styles
 //   const getElementStyles = (entry:any, index:any) => {
 //     const isActive = activeElement === index;
-    
+
 //     if (isDarkMode) {
 //       return {
 //         background: isActive ? `rgba(25, 25, 25, 0.95)` : 'rgba(25, 25, 25, 0.8)',
@@ -194,12 +194,12 @@
 
 //   const getArrowStyle = (index:any) => {
 //     if (isDarkMode) {
-//       return { 
-//         borderRight: `7px solid ${activeElement === index ? 'rgba(25, 25, 25, 0.95)' : 'rgba(25, 25, 25, 0.8)'}` 
+//       return {
+//         borderRight: `7px solid ${activeElement === index ? 'rgba(25, 25, 25, 0.95)' : 'rgba(25, 25, 25, 0.8)'}`
 //       };
 //     } else {
-//       return { 
-//         borderRight: `7px solid ${activeElement === index ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.8)'}` 
+//       return {
+//         borderRight: `7px solid ${activeElement === index ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.8)'}`
 //       };
 //     }
 //   };
@@ -209,7 +209,7 @@
 //      onMouseMove={handleMouseMove}
 //       onMouseLeave={handleMouseLeave}
 //     >
-//       <motion.div 
+//       <motion.div
 //         className="mouse-follow-effect"
 //         animate={backgroundControls}
 //         initial={{ opacity: 0, scale: 0.8, x: 0, y: 0 }}
@@ -218,8 +218,8 @@
 //           width: '300px',
 //           height: '300px',
 //           borderRadius: '50%',
-//           background: isDarkMode 
-//             ? 'radial-gradient(circle, rgba(58, 123, 213, 0.15) 0%, rgba(0, 0, 0, 0) 70%)' 
+//           background: isDarkMode
+//             ? 'radial-gradient(circle, rgba(58, 123, 213, 0.15) 0%, rgba(0, 0, 0, 0) 70%)'
 //             : 'radial-gradient(circle, rgba(58, 123, 213, 0.1) 0%, rgba(255, 255, 255, 0) 70%)',
 //           pointerEvents: 'none',
 //           zIndex: 1
@@ -249,7 +249,7 @@
 //                 <h3 className="vertical-timeline-element-title">{entry.title}</h3>
 //                 <h4 className="vertical-timeline-element-subtitle">{entry.subtitle}</h4>
 //                 <p className="timeline-description">{entry.description}</p>
-                
+
 //                 <div className={`timeline-details ${activeElement === index ? 'active' : ''}`}>
 //                   {entry.highlights && (
 //                     <div className="timeline-highlights">
@@ -261,14 +261,14 @@
 //                       </ul>
 //                     </div>
 //                   )}
-                  
+
 //                   {entry.skills && (
 //                     <div className="timeline-skills">
 //                       <h5>Skills & Technologies:</h5>
 //                       <div className="skill-tags">
 //                         {entry.skills.map((skill, i) => (
-//                           <span 
-//                             key={i} 
+//                           <span
+//                             key={i}
 //                             className="skill-tag"
 //                             style={{ borderColor: entry.color, color: entry.color }}
 //                           >
@@ -279,7 +279,7 @@
 //                     </div>
 //                   )}
 //                 </div>
-                
+
 //                 <div className="timeline-expand">
 //                   <span>{activeElement === index ? 'Show less' : 'Show more'}</span>
 //                 </div>
@@ -294,22 +294,29 @@
 
 // export default Timeline;
 
-
-
 import React, { useState, useEffect, useRef } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faBriefcase, 
-  faCode, 
-  faCloud, 
-  faChartLine, 
-  faCheckCircle 
-} from '@fortawesome/free-solid-svg-icons';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
-import { motion, useAnimation, useMotionValue, AnimationControls, MotionValue } from "framer-motion";
-import '../assets/styles/Timeline.scss';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBriefcase,
+  faCode,
+  faCloud,
+  faChartLine,
+  faCheckCircle,
+} from "@fortawesome/free-solid-svg-icons";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import {
+  motion,
+  useAnimation,
+  useMotionValue,
+  AnimationControls,
+  MotionValue,
+} from "framer-motion";
+import "../assets/styles/Timeline.scss";
 
 interface TimelineEntry {
   title: string;
@@ -327,84 +334,78 @@ const timelineData: TimelineEntry[] = [
     title: "Software Developer - Sify Technologies",
     subtitle: "Chennai, India",
     date: "Jul 2023 - Present",
-    description: "Leading development on cloud-based applications with focus on AWS integration and workflow optimization.",
+    description:
+      "Full-stack engineer delivering cloud-native, serverless, and AI-powered enterprise solutions with proven performance improvements.",
     icon: faCloud,
     skills: [
-      "AWS Step Functions",
-      "Backend Processing",
-      "Workflow Optimization",
-      "EC2",
-      "S3",
+      "AWS Lambda",
+      "Step Functions",
+      "React",
+      "Node.js",
       "MongoDB",
-      "Docker"
+      "Docker",
+      "LLMs",
+      "RAG",
+      "Microservices",
     ],
     highlights: [
-      "Optimized backend processing by implementing AWS Step Functions",
-      "Reduced system strain during high-load events",
-      "Enhanced scalability by modularizing heavy backend tasks"
+      "Architected serverless applications using AWS Step Functions and Lambda, reducing peak server load by 40%",
+      "Optimized backend APIs and workflows, achieving 35% faster response times and 28% reduction in customer complaints",
+      "Reduced infrastructure costs by 22% through modular backend design and efficient resource utilization",
+      "Delivered cloud-native full-stack solutions using React, Node.js, MongoDB, Docker, and AWS with 99.9% uptime",
+      "Built AI-powered systems using LLMs, RAG pipelines, and LangChain for automated content generation and assessment",
     ],
-    color: "#3a7bd5"
+    color: "#3a7bd5",
   },
   {
-    title: "Software Developer Intern - ZOHO",
+    title: "Software Developer Intern - Sify Technologies",
     subtitle: "Chennai, India",
-    date: "2022",
-    description: "Worked on full-stack development projects with focus on creating scalable solutions and API development.",
+    date: "Jan 2023 - Jul 2023",
+    description:
+      "Developed full-stack applications with cloud integration, focusing on performance optimization and AWS service adoption.",
     icon: faCode,
     skills: [
-      "Full-stack Development",
-      "API Design",
-      "Frontend Development",
-      "User Experience"
+      "MERN/MEAN Stack",
+      "React",
+      "Angular",
+      "Node.js",
+      "AWS EC2",
+      "AWS S3",
+      "Lambda",
+      "REST APIs",
     ],
     highlights: [
-      "Developed RESTful APIs for data integration",
-      "Created responsive UI components", 
-      "Participated in code reviews and testing"
+      "Built and deployed 2+ full-stack applications using MERN/MEAN stack, improving frontend load time by 30%",
+      "Integrated AWS services (EC2, S3, Lambda), achieving 25% reduction in API latency",
+      "Collaborated with cross-functional teams using Git and Agile practices, improving code quality and delivery speed",
+      "Gained hands-on experience with cloud deployment, CI/CD pipelines, and production debugging",
     ],
-    color: "#00a591"
+    color: "#00a591",
   },
   {
-    title: "Full Stack Intern - SHIASH",
-    subtitle: "Chennai, India",
-    date: "2021",
-    description: "Gained hands-on experience in web development fundamentals and database operations.",
-    icon: faChartLine,
-    skills: [
-      "User Experience",
-      "CRUD Operations",
-      "Database Design",
-      "Web Development"
-    ],
-    highlights: [
-      "Built database-driven web applications",
-      "Implemented CRUD functionality",
-      "Designed user-friendly interfaces"
-    ],
-    color: "#6a11cb"
-  },
-  {
-    title: "B.TECH Information Technology - Velammal Engineering College",
-    subtitle: "Chennai, India",
-    date: "Aug 2019 - Apr 2023",
-    description: "CGPA: 8.99/10 with focus on computer science fundamentals and software development.",
+    title: "Bachelor of Technology - Information Technology",
+    subtitle: "Velammal Engineering College, Chennai",
+    date: "Aug 2019 - May 2023",
+    description:
+      "CGPA: 8.99/10 - Strong foundation in computer science, algorithms, and software engineering with focus on full-stack development.",
     icon: faCheckCircle,
     skills: [
-      "Object Oriented Programming",
-      "Data Structures and Algorithms",
+      "Data Structures & Algorithms",
+      "Object-Oriented Programming",
       "Databases",
       "Operating Systems",
       "Computer Networks",
-      "Machine Learning"
+      "Machine Learning",
+      "Software Engineering",
     ],
     highlights: [
-      "Completed advanced coursework in algorithms and data structures",
-      "Studied information retrieval and image processing",
-      "Gained strong foundation in software engineering principles"
+      "Achieved 8.99/10 CGPA with consistent academic excellence",
+      "Completed advanced coursework in algorithms, data structures, and system design",
+      "Built multiple full-stack projects using modern web technologies",
+      "Strong foundation in software engineering principles and best practices",
     ],
-    color: "#e83e8c"
-  }
-
+    color: "#e83e8c",
+  },
 ];
 
 interface TimelineProps {
@@ -416,7 +417,7 @@ function Timeline({ mode }: TimelineProps) {
   const [visibleElements, setVisibleElements] = useState<string[]>([]);
   const [animateEntrance, setAnimateEntrance] = useState<boolean>(false);
   const [cursorType, setCursorType] = useState<string>("default");
-  
+
   // Mouse position tracking
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -424,33 +425,36 @@ function Timeline({ mode }: TimelineProps) {
   const cursorY = useMotionValue(0);
   const cursorScale = useMotionValue(1);
   const cursorOpacity = useMotionValue(0);
-  
+
   // Container reference to get relative position
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   // Controls for the background effect animation
   const backgroundControls = useAnimation();
-  
-  const isDarkMode = mode === 'dark';
+
+  const isDarkMode = mode === "dark";
 
   useEffect(() => {
     setTimeout(() => {
       setAnimateEntrance(true);
     }, 300);
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const index = entry.target.getAttribute('data-index');
-          if (index && !visibleElements.includes(index)) {
-            setVisibleElements(prev => [...prev, index]);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = entry.target.getAttribute("data-index");
+            if (index && !visibleElements.includes(index)) {
+              setVisibleElements((prev) => [...prev, index]);
+            }
           }
-        }
-      });
-    }, { threshold: 0.2 });
+        });
+      },
+      { threshold: 0.2 }
+    );
 
-    const elements = document.querySelectorAll('.vertical-timeline-element');
-    elements.forEach(el => observer.observe(el));
+    const elements = document.querySelectorAll(".vertical-timeline-element");
+    elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, [visibleElements]);
@@ -462,26 +466,26 @@ function Timeline({ mode }: TimelineProps) {
       const cursorYSpring = cursorY.get();
       const mouseXValue = mouseX.get();
       const mouseYValue = mouseY.get();
-      
+
       const dx = mouseXValue - cursorXSpring;
       const dy = mouseYValue - cursorYSpring;
-      
+
       cursorX.set(cursorXSpring + dx * 0.2);
       cursorY.set(cursorYSpring + dy * 0.2);
-      
+
       requestAnimationFrame(moveCursor);
     };
-    
+
     const showCursor = () => {
       cursorOpacity.set(1);
     };
-    
+
     // Smoothly animate cursor
     const cursorAnimation = requestAnimationFrame(moveCursor);
-    
+
     // Show cursor after a short delay for smooth fade in
     const opacityTimeout = setTimeout(showCursor, 100);
-    
+
     return () => {
       cancelAnimationFrame(cursorAnimation);
       clearTimeout(opacityTimeout);
@@ -495,17 +499,17 @@ function Timeline({ mode }: TimelineProps) {
       // Calculate relative position within the container
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      
+
       mouseX.set(x);
       mouseY.set(y);
-      
+
       // Animate the background effect
       backgroundControls.start({
         x: x - 150, // Center the effect around the cursor
         y: y - 150,
         opacity: 1,
         scale: 1,
-        transition: { duration: 0.03, ease: "easeOut" }
+        transition: { duration: 0.03, ease: "easeOut" },
       });
     }
   };
@@ -515,24 +519,24 @@ function Timeline({ mode }: TimelineProps) {
     backgroundControls.start({
       opacity: 0,
       scale: 0.8,
-      transition: { duration: 0.5 }
+      transition: { duration: 0.5 },
     });
-    
+
     // Fade out cursor when leaving component
     cursorOpacity.set(0);
   };
-  
+
   // Mouse enter handler
   const handleMouseEnter = (): void => {
     cursorOpacity.set(1);
   };
-  
+
   // Element hover handlers
   const handleElementMouseEnter = (): void => {
     setCursorType("element");
     cursorScale.set(1.5);
   };
-  
+
   const handleElementMouseLeave = (): void => {
     setCursorType("default");
     cursorScale.set(1);
@@ -543,34 +547,53 @@ function Timeline({ mode }: TimelineProps) {
   };
 
   // Determine theme-specific styles
-  const getElementStyles = (entry: TimelineEntry, index: number): React.CSSProperties => {
+  const getElementStyles = (
+    entry: TimelineEntry,
+    index: number
+  ): React.CSSProperties => {
     const isActive = activeElement === index;
-    
+
     if (isDarkMode) {
       return {
-        background: isActive ? `rgba(25, 25, 25, 0.95)` : 'rgba(25, 25, 25, 0.8)',
-        boxShadow: isActive ? `0 8px 30px rgba(0, 0, 0, 0.3)` : `0 3px 10px rgba(0, 0, 0, 0.2)`,
+        background: isActive
+          ? `rgba(25, 25, 25, 0.95)`
+          : "rgba(25, 25, 25, 0.8)",
+        boxShadow: isActive
+          ? `0 8px 30px rgba(0, 0, 0, 0.3)`
+          : `0 3px 10px rgba(0, 0, 0, 0.2)`,
         border: `1px solid ${entry.color}`,
-        borderLeft: `5px solid ${entry.color}`
+        borderLeft: `5px solid ${entry.color}`,
       };
     } else {
       return {
-        background: isActive ? `rgba(255, 255, 255, 0.95)` : 'rgba(255, 255, 255, 0.8)',
-        boxShadow: isActive ? `0 8px 30px rgba(0, 0, 0, 0.15)` : `0 3px 10px rgba(0, 0, 0, 0.1)`,
+        background: isActive
+          ? `rgba(255, 255, 255, 0.95)`
+          : "rgba(255, 255, 255, 0.8)",
+        boxShadow: isActive
+          ? `0 8px 30px rgba(0, 0, 0, 0.15)`
+          : `0 3px 10px rgba(0, 0, 0, 0.1)`,
         border: `1px solid ${entry.color}`,
-        borderLeft: `5px solid ${entry.color}`
+        borderLeft: `5px solid ${entry.color}`,
       };
     }
   };
 
   const getArrowStyle = (index: number): React.CSSProperties => {
     if (isDarkMode) {
-      return { 
-        borderRight: `7px solid ${activeElement === index ? 'rgba(25, 25, 25, 0.95)' : 'rgba(25, 25, 25, 0.8)'}` 
+      return {
+        borderRight: `7px solid ${
+          activeElement === index
+            ? "rgba(25, 25, 25, 0.95)"
+            : "rgba(25, 25, 25, 0.8)"
+        }`,
       };
     } else {
-      return { 
-        borderRight: `7px solid ${activeElement === index ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.8)'}` 
+      return {
+        borderRight: `7px solid ${
+          activeElement === index
+            ? "rgba(255, 255, 255, 0.95)"
+            : "rgba(255, 255, 255, 0.8)"
+        }`,
       };
     }
   };
@@ -578,14 +601,14 @@ function Timeline({ mode }: TimelineProps) {
   // Element hover animations
   const elementHoverVariants = {
     initial: { scale: 1 },
-    hover: { scale: 1.02, transition: { duration: 0.2 } }
+    hover: { scale: 1.02, transition: { duration: 0.2 } },
   };
 
   return (
-    <div 
-      id="history" 
+    <div
+      id="history"
       ref={containerRef}
-      className={`timeline-section ${isDarkMode ? 'dark-mode' : 'light-mode'}`}
+      className={`timeline-section ${isDarkMode ? "dark-mode" : "light-mode"}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
@@ -638,141 +661,159 @@ function Timeline({ mode }: TimelineProps) {
         }}
         transition={{ duration: 0.02 }}
       /> */}
-      
+
       {/* Background effect that follows the mouse */}
-      <motion.div 
+      <motion.div
         className="mouse-follow-effect"
         animate={backgroundControls}
         initial={{ opacity: 0, scale: 0.8, x: 0, y: 0 }}
         style={{
-          position: 'absolute',
-          width: '300px',
-          height: '300px',
-          borderRadius: '50%',
-          background: isDarkMode 
-            ? 'radial-gradient(circle, rgba(58, 123, 213, 0.15) 0%, rgba(0, 0, 0, 0) 70%)' 
-            : 'radial-gradient(circle, rgba(58, 123, 213, 0.1) 0%, rgba(255, 255, 255, 0) 70%)',
-          pointerEvents: 'none',
-          zIndex: 1
+          position: "absolute",
+          width: "300px",
+          height: "300px",
+          borderRadius: "50%",
+          background: isDarkMode
+            ? "radial-gradient(circle, rgba(58, 123, 213, 0.15) 0%, rgba(0, 0, 0, 0) 70%)"
+            : "radial-gradient(circle, rgba(58, 123, 213, 0.1) 0%, rgba(255, 255, 255, 0) 70%)",
+          pointerEvents: "none",
+          zIndex: 1,
         }}
       />
-      
-      <div className="items-container" style={{ position: 'relative', zIndex: 2 }}>
+
+      <div
+        className="items-container"
+        style={{ position: "relative", zIndex: 2 }}
+      >
         <div className="timeline-header">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             Career Journey
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="timeline-intro"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            My professional journey in software development, featuring key roles and accomplishments
+            My professional journey in software development, featuring key roles
+            and accomplishments
           </motion.p>
         </div>
-        <VerticalTimeline animate={animateEntrance} className={`${animateEntrance ? 'animate' : ''}`}>
+        <VerticalTimeline
+          animate={animateEntrance}
+          className={`${animateEntrance ? "animate" : ""}`}
+        >
           {timelineData.map((entry, index) => (
-         
-                <VerticalTimelineElement
-                  data-index={index.toString()}
-                  className={`vertical-timeline-element--work ${activeElement === index ? 'active' : ''} ${visibleElements.includes(index.toString()) ? 'visible' : ''}`}
-                  date={entry.date}
-                  iconStyle={{ background: entry.color, color: '#fff' }}
-                  icon={<FontAwesomeIcon icon={entry.icon} />}
-                  contentStyle={getElementStyles(entry, index)}
-                  contentArrowStyle={getArrowStyle(index)}
-                  onTimelineElementClick={() => handleElementClick(index)}
-                  key={index}
-                  //  onMouseEnter={handleElementMouseEnter}
-                // onMouseLeave={handleElementMouseLeave}
-                >
-                <motion.div 
-                  className="timeline-element-content" 
-                  onClick={() => handleElementClick(index)}
-                  whileHover={{ 
-                    boxShadow: isDarkMode 
-                      ? `0 0 15px ${entry.color}30` 
-                      : `0 0 25px ${entry.color}20` 
+            <VerticalTimelineElement
+              data-index={index.toString()}
+              className={`vertical-timeline-element--work ${
+                activeElement === index ? "active" : ""
+              } ${visibleElements.includes(index.toString()) ? "visible" : ""}`}
+              date={entry.date}
+              iconStyle={{ background: entry.color, color: "#fff" }}
+              icon={<FontAwesomeIcon icon={entry.icon} />}
+              contentStyle={getElementStyles(entry, index)}
+              contentArrowStyle={getArrowStyle(index)}
+              onTimelineElementClick={() => handleElementClick(index)}
+              key={index}
+              //  onMouseEnter={handleElementMouseEnter}
+              // onMouseLeave={handleElementMouseLeave}
+            >
+              <motion.div
+                className="timeline-element-content"
+                onClick={() => handleElementClick(index)}
+                whileHover={{
+                  boxShadow: isDarkMode
+                    ? `0 0 15px ${entry.color}30`
+                    : `0 0 25px ${entry.color}20`,
+                }}
+              >
+                <h3 className="vertical-timeline-element-title">
+                  {entry.title}
+                </h3>
+                <h4 className="vertical-timeline-element-subtitle">
+                  {entry.subtitle}
+                </h4>
+                <p className="timeline-description">{entry.description}</p>
+
+                <motion.div
+                  className={`timeline-details ${
+                    activeElement === index ? "active" : ""
+                  }`}
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{
+                    height: activeElement === index ? "auto" : 0,
+                    opacity: activeElement === index ? 1 : 0,
                   }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
                 >
-                  <h3 className="vertical-timeline-element-title">{entry.title}</h3>
-                  <h4 className="vertical-timeline-element-subtitle">{entry.subtitle}</h4>
-                  <p className="timeline-description">{entry.description}</p>
-                  
-                  <motion.div 
-                    className={`timeline-details ${activeElement === index ? 'active' : ''}`}
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ 
-                      height: activeElement === index ? 'auto' : 0,
-                      opacity: activeElement === index ? 1 : 0
-                    }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                  >
-                    {entry.highlights && (
-                      <div className="timeline-highlights">
-                        <h5>Key Achievements:</h5>
-                        <ul>
-                          {entry.highlights.map((highlight, i) => (
-                            <motion.li 
-                              key={i}
-                              initial={{ opacity: 0, x: -10 }}
-                              animate={{ 
-                                opacity: activeElement === index ? 1 : 0,
-                                x: activeElement === index ? 0 : -10
-                              }}
-                              transition={{ duration: 0.3, delay: 0.1 * i }}
-                            >
-                              {highlight}
-                            </motion.li>
-                          ))}
-                        </ul>
+                  {entry.highlights && (
+                    <div className="timeline-highlights">
+                      <h5>Key Achievements:</h5>
+                      <ul>
+                        {entry.highlights.map((highlight, i) => (
+                          <motion.li
+                            key={i}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{
+                              opacity: activeElement === index ? 1 : 0,
+                              x: activeElement === index ? 0 : -10,
+                            }}
+                            transition={{ duration: 0.3, delay: 0.1 * i }}
+                          >
+                            {highlight}
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {entry.skills && (
+                    <div className="timeline-skills">
+                      <h5>Skills & Technologies:</h5>
+                      <div className="skill-tags">
+                        {entry.skills.map((skill, i) => (
+                          <motion.span
+                            key={i}
+                            className="skill-tag"
+                            style={{
+                              borderColor: entry.color,
+                              color: entry.color,
+                            }}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{
+                              opacity: activeElement === index ? 1 : 0,
+                              scale: activeElement === index ? 1 : 0.8,
+                            }}
+                            transition={{ duration: 0.3, delay: 0.05 * i }}
+                            whileHover={{
+                              scale: 1.05,
+                              backgroundColor: `${entry.color}15`,
+                              transition: { duration: 0.2 },
+                            }}
+                          >
+                            {skill}
+                          </motion.span>
+                        ))}
                       </div>
-                    )}
-                    
-                    {entry.skills && (
-                      <div className="timeline-skills">
-                        <h5>Skills & Technologies:</h5>
-                        <div className="skill-tags">
-                          {entry.skills.map((skill, i) => (
-                            <motion.span 
-                              key={i} 
-                              className="skill-tag"
-                              style={{ borderColor: entry.color, color: entry.color }}
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              animate={{ 
-                                opacity: activeElement === index ? 1 : 0,
-                                scale: activeElement === index ? 1 : 0.8
-                              }}
-                              transition={{ duration: 0.3, delay: 0.05 * i }}
-                              whileHover={{ 
-                                scale: 1.05,
-                                backgroundColor: `${entry.color}15`,
-                                transition: { duration: 0.2 }
-                              }}
-                            >
-                              {skill}
-                            </motion.span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </motion.div>
-                  
-                  <motion.div 
-                    className="timeline-expand"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <span>{activeElement === index ? 'Show less' : 'Show more'}</span>
-                  </motion.div>
+                    </div>
+                  )}
                 </motion.div>
-                </VerticalTimelineElement>
-            
+
+                <motion.div
+                  className="timeline-expand"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span>
+                    {activeElement === index ? "Show less" : "Show more"}
+                  </span>
+                </motion.div>
+              </motion.div>
+            </VerticalTimelineElement>
           ))}
         </VerticalTimeline>
       </div>
@@ -781,6 +822,3 @@ function Timeline({ mode }: TimelineProps) {
 }
 
 export default Timeline;
-
-
-

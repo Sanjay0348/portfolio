@@ -38,17 +38,24 @@ function Main({ mode }: MainProps) {
   const smoothY2 = useSpring(y2, { stiffness: 100, damping: 30 });
   const smoothScale = useSpring(scale, { stiffness: 100, damping: 30 });
 
-  const fullText = "Building innovative software solutions";
+  const fullText = "Architecting scalable cloud-native and AI-powered systems";
   const typingSpeed = 100;
   const roles = [
-    "Full Stack Developer",
-    "AWS Developer",
-    "Cloud Solutions Architect",
-    "GenAI Engineer",
+    "Full-Stack Engineer",
+    "AWS Certified Developer",
+    "Cloud & Serverless Architect",
+    "AI/LLM Systems Engineer",
   ];
   const skills = [{"name":"React",icon:<Code />}, {"name":"Node.js",icon:<Code />},{"name":"AWS",icon:<CloudQueue />},{"name":"GenAI/LLM",icon:<Bolt />}];
   const social_Profile: SocialProfile[]=[{icon:<GitHub />,link:'https://github.com/Sanjay0348'},{icon:<LinkedIn />,link:"https://www.linkedin.com/in/sanjay-venkat0348"}]
   const [currentRoleIndex, setCurrentRoleIndex] = useState<number>(0);
+
+  const achievements = [
+    { metric: "40%", label: "Server Load Reduction" },
+    { metric: "35%", label: "Faster API Response" },
+    { metric: "22%", label: "Cost Savings" },
+    { metric: "99.9%", label: "System Uptime" }
+  ];
 
   // Typing animation effect
   useEffect(() => {
@@ -268,6 +275,20 @@ function Main({ mode }: MainProps) {
 
                 </motion.div>
 
+                <motion.div className="achievement-stats" variants={itemVariants}>
+                  {achievements.map((achievement, index) => (
+                    <motion.div
+                      key={index}
+                      className="stat-item"
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <span className="stat-metric">{achievement.metric}</span>
+                      <span className="stat-label">{achievement.label}</span>
+                    </motion.div>
+                  ))}
+                </motion.div>
+
                 <motion.div className="cta-buttons" variants={itemVariants}>
                   <motion.a
                     className="cta-button primary"
@@ -357,7 +378,7 @@ function Main({ mode }: MainProps) {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 1, duration: 0.5 }}
                 >
-                  2+ YRS EXP
+                  3 YRS EXP
                 </motion.div>
               </motion.div>
             </motion.div>

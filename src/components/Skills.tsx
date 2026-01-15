@@ -11,17 +11,56 @@ interface SkillsProps {
 
 const Skills: React.FC<SkillsProps> = ({ mode }) => {
   const skills = [
-    { name: "React" },
-    { name: "Angular" },
+    // Languages
     { name: "JavaScript" },
     { name: "TypeScript" },
-    { name: "Node.js" },
     { name: "Python" },
-    { name: "CSS/SCSS" },
+    
+    // Frontend
+    { name: "React" },
+    { name: "Angular" },
+    { name: "HTML5/CSS3" },
+    { name: "SASS" },
+    
+    // Backend
+    { name: "Node.js" },
+    { name: "Express" },
+    { name: "FastAPI" },
+    
+    // Databases
     { name: "MongoDB" },
-    { name: "Git" },
+    { name: "MySQL" },
+    { name: "ChromaDB" },
+    { name: "Redis" },
+    
+    // Cloud & DevOps
+    { name: "AWS Lambda" },
+    { name: "EC2" },
+    { name: "S3" },
+    { name: "Step Functions" },
     { name: "Docker" },
-    { name: "AWS" },
+    { name: "Kubernetes" },
+    { name: "CI/CD" },
+    
+    // AI/ML
+    { name: "LangChain" },
+    { name: "RAG" },
+    { name: "LLMs" },
+    { name: "NLP" },
+    { name: "Prompt Engineering" },
+    
+    // Messaging & Monitoring
+    { name: "Kafka" },
+    { name: "Prometheus" },
+    { name: "Grafana" },
+    
+    // Security & Auth
+    { name: "JWT" },
+    { name: "OAuth 2.0" },
+    
+    // Tools
+    { name: "Git" },
+    { name: "FFmpeg" },
   ];
   return (
     <div className={`skills-marquee ${mode}`}>

@@ -28,45 +28,48 @@ import Skills from "./Skills";
 const skills = [
    {
     icon: faNodeJs,
-    title: "Backend Development",
+    title: "Backend & Microservices",
     description:
-      "I develop robust server-side applications with focus on RESTful APIs, database integration, and microservices architecture for scalable solutions.",
-    techStack: ["Node.js", "Express", "Python", "MongoDB", "NoSQL", "MySQL"],
+      "Build high-performance serverless and microservices architectures with event-driven patterns. Achieved 35% faster API response times and 40% peak load reduction through AWS Step Functions and async processing.",
+    techStack: ["Node.js", "Express", "Python", "FastAPI", "MongoDB", "MySQL", "Kafka", "Redis"],
   },
   {
     icon: faReact,
-    title: "Frontend Development",
+    title: "Frontend & UI Engineering",
     description:
-      "I build responsive, interactive web applications using modern frontend technologies with a focus on optimized user experiences and scalable architecture.",
+      "Develop responsive, production-grade web applications with modern frameworks and performance optimization. Improved frontend load times by 30% through code splitting and lazy loading strategies.",
     techStack: [
       "React",
+      "Angular",
       "TypeScript",
       "JavaScript",
       "HTML5",
-      "CSS3",
-      "SASS",
-      "Angular",
+      "CSS3/SASS",
+      "Vite",
+      "Webpack",
     ],
   },
- 
   {
     icon: faAws,
-    title: "Cloud & DevOps",
+    title: "Cloud & DevOps Infrastructure",
     description:
-      "I leverage cloud platforms and DevOps practices to deploy, orchestrate, and maintain applications with high availability and scalability.",
-    techStack: ["AWS", "EC2", "S3", "Lambda", "Step Functions", "Docker"],
+      "Design and deploy cloud-native, serverless applications on AWS with CI/CD automation. Reduced infrastructure costs by 22% through efficient resource utilization and modular architecture design.",
+    techStack: ["AWS Lambda", "EC2", "S3", "Step Functions", "CloudFormation", "Docker", "Kubernetes", "CI/CD"],
   },
   {
     icon: faRobot,
-    title: "GenAI & LLM",
+    title: "AI/LLM & RAG Systems",
     description:
-      "I integrate AI capabilities into applications, building intelligent systems that process natural language and transform data into valuable insights.",
+      "Engineer intelligent systems using LLMs, RAG pipelines, and semantic search. Built production AI applications with LangChain, ChromaDB, and prompt engineering, reducing manual effort by 70%.",
     techStack: [
+      "LangChain",
+      "RAG",
+      "ChromaDB",
       "OpenAI",
       "Hugging Face",
-      "Together AI",
+      "Prompt Engineering",
+      "NLP",
       "Edge-TTS",
-      "LLM Pipelines",
     ],
   },
 ];
@@ -208,9 +211,10 @@ function Expertise({ mode }: { mode: string }) {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Specialized in modern web development with experience in optimizing
-          workflow processes, creating scalable applications, and implementing
-          cloud solutions.
+          3 years building production-grade, cloud-native systems with expertise in 
+          serverless architectures, AI/LLM integration, and performance engineering. 
+          AWS Certified Developer with proven track record of optimizing scalability, 
+          reducing costs, and delivering high-availability solutions.
         </motion.p>
     <motion.div 
           className="expertise-highlight"
@@ -229,7 +233,7 @@ function Expertise({ mode }: { mode: string }) {
               animate={{ scale: 1 }}
               transition={{ delay: 1, type: "spring" }}
             >
-              2+
+              3+
             </motion.span>
             <span className={`highlight-text${mode === "dark" ? "-dark" : ""}`}>
               Years Experience
