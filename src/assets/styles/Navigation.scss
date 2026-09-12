@@ -1,0 +1,142 @@
+@use "./variables" as *;
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  backdrop-filter: blur(16px);
+}
+
+.nav.scrolled {
+  border-bottom-color: $dark-border;
+  background: rgba(10, 10, 11, 0.78);
+}
+
+.nav.light.scrolled {
+  border-bottom-color: $light-border;
+  background: rgba(244, 244, 242, 0.82);
+}
+
+.nav-inner {
+  width: min(100%, $max-width);
+  margin: 0 auto;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nav-mark,
+.nav-links button,
+.nav-icon,
+.nav-drawer button {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.nav-mark {
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.4rem;
+
+  button {
+    font-size: 0.88rem;
+    color: $dark-text-muted;
+    position: relative;
+
+    &.active,
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+
+.nav.light .nav-links button {
+  color: $light-text-muted;
+
+  &.active,
+  &:hover {
+    color: $light-text;
+  }
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.nav-resume {
+  font-size: 0.82rem;
+  border: 1px solid $dark-border;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+}
+
+.nav.light .nav-resume {
+  border-color: $light-border;
+}
+
+.nav-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid $dark-border !important;
+}
+
+.nav.light .nav-icon {
+  border-color: $light-border !important;
+}
+
+.nav-icon.menu {
+  display: none;
+}
+
+.nav-drawer {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav-links,
+  .nav-resume {
+    display: none;
+  }
+
+  .nav-icon.menu {
+    display: grid;
+  }
+
+  .nav-drawer {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 1.5rem 1rem;
+    gap: 0.4rem;
+    border-top: 1px solid $dark-border;
+    background: rgba(10, 10, 11, 0.96);
+
+    button {
+      text-align: left;
+      padding: 0.7rem 0;
+      font-size: 1.05rem;
+    }
+  }
+
+  .nav.light .nav-drawer {
+    background: rgba(244, 244, 242, 0.98);
+    border-top-color: $light-border;
+  }
+}

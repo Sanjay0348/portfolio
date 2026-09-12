@@ -1,0 +1,28 @@
+@use "./variables" as *;
+
+.about-section {
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+  border-top: 1px solid $dark-border;
+}
+
+.light-mode .about-section {
+  border-top-color: $light-border;
+}
+
+.about-copy {
+  max-width: 18ch;
+  font-size: clamp(1.8rem, 3.6vw, 3.1rem);
+  font-weight: 500;
+}
+
+.about-meta {
+  margin-top: 1.5rem;
+  font-family: $font-mono;
+  font-size: 0.8rem;
+  color: $dark-text-muted;
+}
+
+.light-mode .about-meta {
+  color: $light-text-muted;
+}

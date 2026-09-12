@@ -1,110 +1,56 @@
-// Simplified Footer SCS
+@use "./variables" as *;
+
 .footer {
   width: 100%;
-  padding: 2rem 1.5rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 1.5rem;
+  border-top: 1px solid $dark-border;
+  position: relative;
+  z-index: 3;
+}
 
-  &-dark {
-    background-color: #121212;
-    color: #f5f5f5;
+.footer-light {
+  border-top-color: $light-border;
+}
 
-    a {
-      color: #f5f5f5;
-      transition: color 0.3s ease;
+.footer-container {
+  width: min(100%, $max-width);
+  margin: 0 auto;
+}
 
-      &:hover {
-        color: #0084ff;
-      }
-    }
-  }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
 
-  &-light {
-    background-color: #f5f5f5;
-    color: #121212;
+.footer-social {
+  display: flex;
+  gap: 1rem;
 
-    a {
-      color: #121212;
-      transition: color 0.3s ease;
+  a {
+    color: inherit;
+    opacity: 0.7;
+    transition: opacity $transition, color $transition;
 
-      &:hover {
-        color: #0084ff;
-      }
-    }
-  }
-
-  &-container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  &-bottom {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  &-social {
-    display: flex;
-    gap: 1.5rem;
-    margin-bottom: 0.5rem;
-
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: rgba(128, 128, 128, 0.1);
-      transition: all 0.3s ease;
-
-      &:hover {
-        background-color: #0084ff;
-        transform: translateY(-3px);
-
-        .footer-icon {
-          color: white;
-        }
-      }
-    }
-  }
-
-  &-icon {
-    font-size: 1.2rem;
-  }
-
-  &-copyright {
-    font-size: 0.85rem;
-    text-align: center;
-
-    .heart {
-      color: #ff4d4d;
-      display: inline-block;
-      animation: heartbeat 1.5s infinite;
-    }
-
-    a {
-      text-decoration: none;
-      font-weight: 600;
+    &:hover {
+      opacity: 1;
+      color: $accent;
     }
   }
 }
 
-@keyframes heartbeat {
-  0% {
-    transform: scale(1);
-  }
-  14% {
-    transform: scale(1.2);
-  }
-  28% {
-    transform: scale(1);
-  }
-  42% {
-    transform: scale(1.2);
-  }
-  70% {
-    transform: scale(1);
-  }
+.footer-copyright {
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  color: $dark-text-muted;
+}
+
+.footer-light .footer-copyright {
+  color: $light-text-muted;
+}
+
+.heart {
+  color: $accent;
 }

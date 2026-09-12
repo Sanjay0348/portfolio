@@ -1,0 +1,83 @@
+@use "./variables" as *;
+
+.dna-section {
+  border-top: 1px solid $dark-border;
+}
+
+.light-mode .dna-section {
+  border-top-color: $light-border;
+}
+
+.dna-stack {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.dna-layer {
+  border: 1px solid $dark-border;
+  border-bottom: 0;
+  padding: 1.25rem 1.4rem;
+
+  &:first-child {
+    border-radius: $radius $radius 0 0;
+  }
+
+  &:last-child {
+    border-bottom: 1px solid $dark-border;
+    border-radius: 0 0 $radius $radius;
+  }
+}
+
+.light-mode .dna-layer {
+  border-color: $light-border;
+}
+
+.dna-label {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $accent;
+  margin-bottom: 0.85rem;
+}
+
+.dna-nodes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  button {
+    font-family: $font-mono;
+    font-size: 0.82rem;
+    padding: 0.45rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid $dark-border;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    transition: border-color $transition, background $transition;
+
+    &.on,
+    &:hover {
+      border-color: $accent;
+      background: $accent-soft;
+    }
+  }
+}
+
+.light-mode .dna-nodes button {
+  border-color: $light-border;
+}
+
+.dna-proof {
+  margin-top: 1.25rem;
+  min-height: 1.5em;
+  color: $dark-text-muted;
+  font-size: 0.95rem;
+}
+
+.light-mode .dna-proof {
+  color: $light-text-muted;
+}

@@ -1,255 +1,93 @@
-/* Timeline.scss */
+@use "./variables" as *;
 
 .timeline-section {
+  border-top: 1px solid $dark-border;
+}
+
+.light-mode .timeline-section {
+  border-top-color: $light-border;
+}
+
+.experience-list {
+  margin-top: 3rem;
+}
+
+.experience-row {
+  display: grid;
+  grid-template-columns: 14rem 1fr;
+  gap: 2rem;
   padding: 2rem 0;
-  min-height:100vh ;
-
-  /* Dark mode specific styles */
-  &.dark-mode {
-    .timeline-header h1,
-    .timeline-header p,
-    .vertical-timeline-element-title,
-    .vertical-timeline-element-subtitle,
-    .timeline-description,
-    .timeline-highlights h5,
-    .timeline-highlights li,
-    .timeline-skills h5,
-    .timeline-expand span {
-      color: white;
-    }
-
-    .vertical-timeline::before {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .vertical-timeline-element-content-arrow {
-      border-right: 7px solid rgba(25, 25, 25, 0.8) !important;
-    }
-
-    .vertical-timeline-element-date {
-      color: rgba(255, 255, 255, 0.7) !important;
-    }
-  }
-
-  /* Light mode specific styles */
-  &.light-mode {
-    .timeline-header h1,
-    .timeline-header p,
-    .vertical-timeline-element-title,
-    .vertical-timeline-element-subtitle,
-    .timeline-description,
-    .timeline-highlights h5,
-    .timeline-highlights li,
-    .timeline-skills h5,
-    .timeline-expand span {
-      color: #0d1116;
-    }
-
-    .vertical-timeline::before {
-      background-color: rgba(0, 0, 0, 0.08);
-    }
-
-    .vertical-timeline-element-content-arrow {
-      border-right: 7px solid rgba(255, 255, 255, 0.8) !important;
-    }
-
-    .vertical-timeline-element-date {
-      color: rgba(0, 0, 0, 0.7) !important;
-    }
-  }
+  border-top: 1px solid $dark-border;
 }
 
-.timeline-header {
-  text-align: center;
-  margin-bottom: 3rem;
-
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-  }
-
-  .timeline-intro {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto;
-  }
+.light-mode .experience-row {
+  border-top-color: $light-border;
 }
 
-.timeline-element-content {
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  .vertical-timeline-element-title {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
-  .vertical-timeline-element-subtitle {
-    font-size: 1rem;
-    font-weight: 400;
-    margin-bottom: 1rem;
-  }
+.experience-date {
+  font-family: $font-mono;
+  font-size: 0.78rem;
+  color: $accent;
 }
 
-.timeline-description {
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
-  line-height: 1.5;
+.experience-place {
+  margin-top: 0.35rem;
+  font-size: 0.88rem;
+  color: $dark-text-muted;
 }
 
-.timeline-details {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.5s ease, opacity 0.5s ease;
-
-  &.active {
-    max-height: 1000px;
-    opacity: 1;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
+.light-mode .experience-place {
+  color: $light-text-muted;
 }
 
-.timeline-highlights,
-.timeline-skills {
-  margin-bottom: 1.5rem;
-
-  h5 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.8rem;
-  }
-
-  ul {
-    padding-left: 1.5rem;
-    margin-top: 0.5rem;
-
-    li {
-      margin-bottom: 0.5rem;
-      line-height: 1.4;
-    }
-  }
-}
-
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 0.5rem;
-}
-
-.skill-tag {
-  display: inline-block;
-  padding: 5px 10px;
-  border-radius: 20px;
-  border: 1px solid;
-  font-size: 0.9rem;
+.experience-body h3 {
+  font-size: 1.2rem;
   font-weight: 500;
-  background: rgba(255, 255, 255, 0.1);
-  transition: all 0.2s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-  }
+  letter-spacing: -0.03em;
 }
 
-.timeline-expand {
-  text-align: center;
-  margin-top: 1rem;
-
-  span {
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-decoration: underline;
-    transition: all 0.2s ease;
-
-    &:hover {
-      opacity: 0.8;
-    }
-  }
+.experience-body ul {
+  margin: 0.9rem 0 0;
+  padding: 0;
+  list-style: none;
 }
 
-/* Animation classes */
-.vertical-timeline-element {
-  opacity: 1;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-
-  &.visible {
-    opacity: 0;
-    transform: translateY(0);
-  }
+.experience-body li {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 0.55rem;
+  color: $dark-text-muted;
+  font-size: 0.95rem;
 }
 
-@media (max-width: 1169px) {
-  .vertical-timeline-element-date {
-    margin-top: 1rem !important;
-    margin-bottom: 0 !important;
-    text-align: center !important;
-  }
+.light-mode .experience-body li {
+  color: $light-text-muted;
+}
+
+.experience-body li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 1px;
+  background: $accent;
+}
+
+.education-note {
+  margin-top: 2rem;
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  color: $dark-text-muted;
+}
+
+.light-mode .education-note {
+  color: $light-text-muted;
 }
 
 @media (max-width: 768px) {
-  .timeline-header h1 {
-    font-size: 2rem;
-  }
-
-  .timeline-intro {
-    font-size: 1rem;
-  }
-
-  .skill-tags {
-    gap: 6px;
-  }
-
-  .skill-tag {
-    font-size: 0.8rem;
-    padding: 4px 8px;
+  .experience-row {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
   }
 }
-
-// / Add these styles to your SCSS file:
-
-// .timeline-section {
-//   cursor: none;
-//   position: relative;
-//   overflow: hidden;
-// }
-
-// .custom-cursor-outer {
-//   mix-blend-mode: difference;
-//   will-change: transform;
-//   box-shadow: 0 0 20px rgba(58, 123, 213, 0.2);
-//   transition: width 0.2s ease, height 0.2s ease;
-// }
-
-// .custom-cursor-inner {
-//   will-change: transform;
-//   box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
-//   transition: opacity 0.2s ease;
-// }
-
-// .timeline-element-content {
-//   transition: box-shadow 0.3s ease, transform 0.3s ease;
-  
-//   &:hover {
-//     transform: translateY(-2px);
-//   }
-// }
-
-// .vertical-timeline-element {
-//   transition: transform 0.3s ease;
-  
-//   &:hover {
-//     z-index: 5;
-//   }
-// }
-
-// .mouse-follow-effect {
-//   will-change: transform, opacity;
-//   pointer-events: none;
-// }

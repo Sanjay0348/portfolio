@@ -1,5 +1,6 @@
-import React from 'react';
-import '../assets/styles/Resume.scss';
+import React from "react";
+import "../assets/styles/Resume.scss";
+import { profile } from "../data/portfolio";
 
 interface ResumeSectionProps {
   mode: string;
@@ -10,14 +11,9 @@ const ResumeSection: React.FC<ResumeSectionProps> = ({ mode }) => {
     <div className={`resume-section ${mode}`}>
       <h2>Resume</h2>
       <div className="resume-container">
-        <embed
-          src="/Sanjay_Venkat.pdf"
-          type="application/pdf"
-          className="resume-preview"
-        />
         <a
-          href="/Sanjay_Venkat"
-          download="Sanjay_Venkat"
+          href={profile.resumePath}
+          download={profile.resumeFileName}
           className="download-button"
         >
           Download Resume
