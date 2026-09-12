@@ -11,12 +11,17 @@ function EngineeringDNA() {
   return (
     <section className="site-section dna-section" id="stack">
       <div className="site-wrap">
-        <motion.div initial="hidden" whileInView="visible" viewport={viewportOnce} variants={stagger}>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={stagger}
+        >
           <motion.p className="section-kicker" variants={fadeUp}>
-            Engineering DNA
+            02 / THE TOOLKIT
           </motion.p>
           <motion.h2 className="section-title" variants={fadeUp}>
-            How the stack is actually layered.
+            AI brain. Full-stack hands.
           </motion.h2>
         </motion.div>
 
@@ -37,6 +42,11 @@ function EngineeringDNA() {
                     key={node.name}
                     type="button"
                     className={active === node.name ? "on" : ""}
+                    aria-pressed={active === node.name}
+                    onClick={() => {
+                      setActive(node.name);
+                      setProof(node.proof);
+                    }}
                     onMouseEnter={() => {
                       setActive(node.name);
                       setProof(node.proof);
@@ -53,7 +63,9 @@ function EngineeringDNA() {
             </motion.div>
           ))}
         </div>
-        <p className="dna-proof">{proof}</p>
+        <p className="dna-proof" aria-live="polite">
+          {proof}
+        </p>
       </div>
     </section>
   );

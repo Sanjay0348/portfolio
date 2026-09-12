@@ -1,38 +1,194 @@
-@use "./variables" as *;
-
+﻿@use "./variables" as *;
 .contact-section {
-  border-top: 1px solid $dark-border;
-  padding-bottom: 6rem;
+  padding-top: 20px;
+  padding-bottom: 55px;
 }
-
-.light-mode .contact-section {
-  border-top-color: $light-border;
+.contact-panel {
+  padding: 38px 42px;
+  border: 1px solid var(--accent-border);
+  border-radius: 10px;
+  background: var(--accent-dim);
+  position: relative;
+  overflow: hidden;
 }
-
-.contact-title {
-  max-width: 16ch;
-}
-
-.contact-links {
+.contact-topline {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  margin-top: 2rem;
-
-  a {
-    font-family: $font-mono;
-    font-size: 0.88rem;
-    border-bottom: 1px solid $dark-border;
-    padding-bottom: 0.15rem;
-    transition: border-color $transition, color $transition;
-
+  align-items: center;
+  justify-content: space-between;
+  .section-kicker {
+    margin: 0;
+  }
+  > span {
+    font: 7px $font-mono;
+    letter-spacing: 0.07em;
+    color: var(--muted);
+  }
+}
+.contact-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 34px 0;
+  position: relative;
+  z-index: 1;
+  h2 {
+    font-size: clamp(40px, 5.7vw, 75px);
+    font-weight: 500;
+    line-height: 1.06;
+    letter-spacing: -0.06em;
+    span {
+      color: var(--accent);
+    }
+  }
+  p {
+    margin-top: 20px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+  }
+}
+.contact-big-arrow {
+  display: grid;
+  place-items: center;
+  width: 120px;
+  height: 120px;
+  border: 1px solid var(--accent-border);
+  border-radius: 50%;
+  color: var(--accent);
+  transition:
+    background 0.3s,
+    transform 0.3s;
+  svg {
+    width: 80px;
+    height: 80px;
+  }
+  &:hover {
+    background: var(--accent);
+    color: var(--bg);
+    transform: rotate(8deg);
+  }
+}
+.contact-bottom {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--accent-border);
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.email-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  > a {
+    font-size: 16px;
+    letter-spacing: -0.02em;
+  }
+  button {
+    display: grid;
+    place-items: center;
+    background: none;
+    border: 0;
+    color: var(--muted);
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
     &:hover {
-      color: $accent;
-      border-color: $accent;
+      color: var(--accent);
     }
   }
 }
-
-.light-mode .contact-links a {
-  border-bottom-color: $light-border;
+.copy-status {
+  position: absolute;
+  top: 35px;
+  color: var(--accent);
+  font-size: 10px;
+}
+.contact-socials {
+  display: flex;
+  gap: 23px;
+  a {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: var(--muted);
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}
+.contact-decor {
+  position: absolute;
+  font-size: 450px;
+  line-height: 1;
+  right: 80px;
+  top: 10px;
+  color: var(--accent);
+  opacity: 0.025;
+  pointer-events: none;
+  animation: spark-turn 80s linear infinite;
+}
+@media (max-width: 700px) {
+  .contact-panel {
+    padding: 25px;
+  }
+  .contact-topline > span {
+    display: none;
+  }
+  .contact-main {
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .contact-big-arrow {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    margin-top: 10px;
+    svg {
+      width: 36px;
+      height: 36px;
+    }
+  }
+  .contact-main h2 {
+    font-size: 44px;
+  }
+  .contact-main p {
+    font-size: 12px;
+  }
+  .contact-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 25px;
+  }
+  .email-group > a {
+    font-size: 13px;
+  }
+  .email-group {
+    gap: 3px;
+  }
+  .contact-socials {
+    gap: 25px;
+  }
+  .desktop-break {
+    display: none;
+  }
+}
+@media (max-width: 380px) {
+  .contact-panel {
+    padding: 20px;
+  }
+  .contact-main h2 {
+    font-size: 36px;
+  }
+  .contact-big-arrow {
+    width: 40px;
+    height: 40px;
+  }
+  .email-group > a {
+    font-size: 11px;
+  }
 }

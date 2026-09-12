@@ -4,18 +4,30 @@ import { fadeUp, stagger, viewportOnce } from "../helpers/motion";
 import "../assets/styles/Timeline.scss";
 
 function Timeline({ mode }: { mode: string }) {
-  const work = timelineData.filter((entry) => !entry.title.startsWith("B.Tech"));
-  const education = timelineData.find((entry) => entry.title.startsWith("B.Tech"));
+  const work = timelineData.filter(
+    (entry) => !entry.title.startsWith("B.Tech"),
+  );
+  const education = timelineData.find((entry) =>
+    entry.title.startsWith("B.Tech"),
+  );
 
   return (
-    <section className={`site-section timeline-section ${mode}`} id="experience">
+    <section
+      className={`site-section timeline-section ${mode}`}
+      id="experience"
+    >
       <div className="site-wrap">
-        <motion.div initial="hidden" whileInView="visible" viewport={viewportOnce} variants={stagger}>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={stagger}
+        >
           <motion.p className="section-kicker" variants={fadeUp}>
-            Experience
+            03 / THE JOURNEY
           </motion.p>
           <motion.h2 className="section-title" variants={fadeUp}>
-            Roles with measurable impact.
+            Getting my hands into the hard stuff.
           </motion.h2>
         </motion.div>
 

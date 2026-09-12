@@ -1,29 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.scss';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import "@fontsource/instrument-sans/latin-400.css";
+import "@fontsource/instrument-sans/latin-500.css";
+import "@fontsource/instrument-sans/latin-600.css";
+import "@fontsource/ibm-plex-mono/latin-400.css";
+import "@fontsource/ibm-plex-mono/latin-500.css";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { PostHogProvider } from "posthog-js/react";
 
-import { PostHogProvider} from 'posthog-js/react'
-
-const options = {
-  api_host: import.meta.env.VITE_APP_PUBLIC_POSTHOG_HOST,
-}
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <>
-  <PostHogProvider 
-      apiKey={import.meta.env.VITE_APP_PUBLIC_POSTHOG_KEY}
-      options={options}
-    >
+const analyticsKey = import.meta.env.VITE_APP_PUBLIC_POSTHOG_KEY;
+const app = analyticsKey ? (
+  <PostHogProvider
+    apiKey={analyticsKey}
+    options={{ api_host: import.meta.env.VITE_APP_PUBLIC_POSTHOG_HOST }}
+  >
     <App />
-    </PostHogProvider>
-  </>
+  </PostHogProvider>
+) : (
+  <App />
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(app);

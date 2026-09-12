@@ -1,142 +1,149 @@
-@use "./variables" as *;
-
+﻿@use "./variables" as *;
 .nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 20;
-  border-bottom: 1px solid transparent;
-  background: transparent;
-  backdrop-filter: blur(16px);
+  inset: 0 0 auto;
+  z-index: 30;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
 }
-
-.nav.scrolled {
-  border-bottom-color: $dark-border;
-  background: rgba(10, 10, 11, 0.78);
-}
-
-.nav.light.scrolled {
-  border-bottom-color: $light-border;
-  background: rgba(244, 244, 242, 0.82);
-}
-
 .nav-inner {
-  width: min(100%, $max-width);
+  width: min(100%, 1244px);
   margin: 0 auto;
-  padding: 0.85rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  padding: 19px 32px;
+  gap: 24px;
 }
-
-.nav-mark,
-.nav-links button,
-.nav-icon,
-.nav-drawer button {
-  background: none;
-  border: 0;
-  color: inherit;
-  cursor: pointer;
-  font-family: inherit;
-}
-
 .nav-mark {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
   font-weight: 600;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
 }
-
+.brand-icon {
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  border: 1px solid var(--accent-border);
+  border-radius: 7px;
+  color: var(--accent);
+  margin-right: 10px;
+  transform: rotate(-6deg);
+}
+.brand-period {
+  color: var(--accent);
+}
+.brand-role {
+  font: 7px $font-mono;
+  color: var(--muted);
+  letter-spacing: 0.07em;
+  max-width: 65px;
+  margin-left: 18px;
+  padding-left: 15px;
+  border-left: 1px solid var(--border);
+}
 .nav-links {
   display: flex;
-  gap: 1.4rem;
-
-  button {
-    font-size: 0.88rem;
-    color: $dark-text-muted;
+  gap: 29px;
+  a {
+    color: var(--muted);
+    font-size: 11px;
     position: relative;
-
-    &.active,
-    &:hover {
-      color: inherit;
+    transition: color 0.2s;
+    &:hover,
+    &.active {
+      color: var(--accent);
+    }
+    &.active::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+      left: calc(50% - 2px);
     }
   }
 }
-
-.nav.light .nav-links button {
-  color: $light-text-muted;
-
-  &.active,
-  &:hover {
-    color: $light-text;
-  }
-}
-
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 16px;
 }
-
-.nav-resume {
-  font-size: 0.82rem;
-  border: 1px solid $dark-border;
-  border-radius: 999px;
-  padding: 0.35rem 0.75rem;
-}
-
-.nav.light .nav-resume {
-  border-color: $light-border;
-}
-
 .nav-icon {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
   width: 34px;
   height: 34px;
   display: grid;
   place-items: center;
-  border-radius: 999px;
-  border: 1px solid $dark-border !important;
+  &:hover {
+    color: var(--accent);
+  }
 }
-
-.nav.light .nav-icon {
-  border-color: $light-border !important;
+.nav-resume {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 10px;
+  border: 1px solid var(--strong-border);
+  padding: 8px 13px;
+  border-radius: 4px;
+  &:hover {
+    border-color: var(--accent);
+  }
 }
-
 .nav-icon.menu {
   display: none;
 }
-
-.nav-drawer {
-  display: none;
+.scroll-progress {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform-origin: left;
 }
-
-@media (max-width: 768px) {
+.nav-drawer {
+  background: var(--bg);
+  padding: 12px 22px 22px;
+  border-top: 1px solid var(--border);
+  a {
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+  }
+}
+@media (max-width: 900px) {
+  .brand-role {
+    display: none;
+  }
+  .nav-links {
+    gap: 20px;
+  }
+}
+@media (max-width: 700px) {
+  .nav-inner {
+    padding: 15px 22px;
+  }
   .nav-links,
   .nav-resume {
     display: none;
   }
-
   .nav-icon.menu {
     display: grid;
   }
-
-  .nav-drawer {
-    display: flex;
-    flex-direction: column;
-    padding: 0.5rem 1.5rem 1rem;
-    gap: 0.4rem;
-    border-top: 1px solid $dark-border;
-    background: rgba(10, 10, 11, 0.96);
-
-    button {
-      text-align: left;
-      padding: 0.7rem 0;
-      font-size: 1.05rem;
-    }
-  }
-
-  .nav.light .nav-drawer {
-    background: rgba(244, 244, 242, 0.98);
-    border-top-color: $light-border;
+  .nav-actions {
+    gap: 6px;
   }
 }

@@ -21,6 +21,8 @@ export const profile = {
     "Full Stack AI Engineer with 3.5+ years building scalable full-stack, backend, and Generative AI systems. I design LLM applications, RAG pipelines, AI agents, and MCP integrations on cloud-native, event-driven platforms — with a focus on system design, reliability, and production-grade automation.",
   roles: [
     "Full Stack AI Engineer",
+    "AI Engineer",
+    "Software Engineer",
     "Backend & Distributed Systems",
     "Generative AI & LLM Applications",
     "Cloud-Native Systems Engineer",
