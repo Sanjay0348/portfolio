@@ -45,8 +45,8 @@
     "serve": "vite preview",
     "test": "playwright test",
     "predeploy": "npm run build",
-    "preview": "npm run build && wrangler pages dev",
-    "deploy": "npm run build && wrangler pages deploy",
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
     "cf-typegen": "wrangler types",
     "ghdeploy": "gh-pages -d build"
   },
